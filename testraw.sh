@@ -12,7 +12,7 @@ do
 	fh=$(echo "scale=2; ($cel - 273.15) * 1.8 + 32" | bc)
 	cel=$(echo "scale=2; $cel - 273.15" | bc)
 	dt=$(echo "f-$fh-c-$cel")
-	echo $dt
+	#echo $dt
 	wget -qO- "http://192.168.1.104:8080?dt=f-$fh-c-$cel" &> /dev/null
 	sleep 1
 done
