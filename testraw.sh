@@ -1,9 +1,10 @@
 #!/bin/bash
+
 tmp="";
 fh=0;
 cel=0;
-float_scale=2
 
+# requires i2c-tools, wget and bc to work.
 while :;
 do
 	tmp=$(i2cget -y 1 0x5a 0x07 w)
