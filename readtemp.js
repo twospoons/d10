@@ -17,16 +17,12 @@ function readt() {
 		console.log('error: ' + err);	
 	} else if(stdout !== null) {
 		var temp = 'f_' + parseTempF(stdout) + '_c_' + parseTempC(stdout);
-		//console.log('f: ' + parseTempF(stdout) + ' c: ' + parseTempC(stdout));
-		//return temp;
 		console.log(temp);
-		request.get('http://192.168.1.104:8080?dt=' + temp);
+		request.get('http://192.168.1.104:8080?dt=' + temp,
+			function(res) {  });
 	}
 	});
+	setTimeout(readt, 1);
 }
 
-setInterval(
-	function() { 
-		readt(); 
-	}, 
-1000);
+setTimeout(readt, 1);
